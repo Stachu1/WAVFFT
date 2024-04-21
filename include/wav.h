@@ -17,8 +17,8 @@ typedef struct header_t {
     int subchunk2_size;
 } header_t;
 
-void read_wav_header(const char *filename, header_t *wav_header);
-void read_wav_interval(const char *filename, header_t *wav_header, float start_sec, float end_sec, short **samples, int *num_samples);
+void read_wav_interval(FILE *file, header_t *wav_header, float start_sec, float end_sec, short **samples, int *num_samples);
+void wav_read(FILE *file, unsigned long offset, int count, short *samples);
 void wav_test(const char *filename);
 
 #endif

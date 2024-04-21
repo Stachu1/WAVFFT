@@ -9,7 +9,8 @@
 
 
 int main() {
-    wav_test("data.wav");
+    wav_test("f.wav");
+    return 0;
 
     int N = 8;
     double sample_rate = 8;
