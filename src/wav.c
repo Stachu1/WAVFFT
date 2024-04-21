@@ -23,7 +23,6 @@ void read_wav_interval(FILE *file, header_t *header, float start_sec, float end_
 
 
 void wav_read(FILE *file, unsigned long offset, int count, short *samples) {
-    printf("OFFSET: %lu COUNT: %d s[0]=%d\n", offset, count, *samples);
     fseek(file, offset, SEEK_SET);
     fread(samples, sizeof(short), count, file);
 }

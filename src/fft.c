@@ -35,14 +35,17 @@ void fft_print(complex double *x, int n, double sample_rate) {
 }
 
 void fft_display(complex double *x, int n, double sample_rate, double scale) {
+    printf("\033[2J");
     printf("--------------------------------\n");
-    for(int i = 0; i < n/2+1; i++) {
-        printf("|");
-        int a = (int)(cabs(x[i]) * 2 / n * scale);
+    for(int i = 1; i < n/2+1; i++) {
+        printf("|\033[92m");
+        int a = (int)(log10(cabs(x[i]) * 2 / n) * scale);
         for (int j = 0; j < a; j++) {
+            if (j == a - 3) { printf("\033[93m"); }
+            if (j == a - 1) { printf("\033[91m"); }
             printf("#");
         }
-        printf("\n");
+        printf("\033[0m\n");
     }
     printf("--------------------------------\n");
 }
